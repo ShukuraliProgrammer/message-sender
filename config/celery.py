@@ -8,7 +8,8 @@ from django.apps import apps
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 
-app = Celery("config")
+app = Celery("config",
+             include=['msg_app.tasks'])
 
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
