@@ -2,9 +2,8 @@ import json
 from datetime import datetime
 
 from django.db.models.signals import post_save
-from django_celery_beat.models import ClockedSchedule, PeriodicTask, PeriodicTasks
-from .tasks import send_message_for_notify
-from .models import Message, UserModel
+from django_celery_beat.models import ClockedSchedule, PeriodicTask
+from .models import Message
 
 
 def post_save_wishlist_date(sender, instance: Message, created, **kwargs):
